@@ -80,20 +80,20 @@ StationMap.prototype.wrangleData = function() {
 
 StationMap.prototype.updateVis = function() {
   var vis = this;
-  //
-  // vis.lines = L.layerGroup().addTo(vis.map);
-  // vis.stations = L.layerGroup().addTo(vis.map);
-  //
-  // vis.lines.addLayer(L.geoJSON);
-  //
-  // vis.data.forEach(function(station) {
-  //   var latlng = [station.lat, station.long];
-  //   var popupContent = "Station: " + station.name + "<br>" +
-  //                       "Bikes: " + station.nbBikes + "<br>" +
-  //                       "Docks: " + station.nbEmptyDocks;
-  //
-  //   vis.stations.addLayer(L.marker(latlng).bindPopup(popupContent));
-  // });
+  
+  vis.lines = L.layerGroup().addTo(vis.map);
+  vis.stations = L.layerGroup().addTo(vis.map);
+
+  vis.lines.addLayer(L.geoJSON);
+
+  vis.data.forEach(function(station) {
+    var latlng = [station.lat, station.long];
+    var popupContent = "Station: " + station.name + "<br>" +
+                        "Bikes: " + station.nbBikes + "<br>" +
+                        "Docks: " + station.nbEmptyDocks;
+
+    vis.stations.addLayer(L.marker(latlng).bindPopup(popupContent));
+  });
 
 
 }
